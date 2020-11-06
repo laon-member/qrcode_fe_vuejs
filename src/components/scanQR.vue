@@ -1,7 +1,7 @@
 <template>
   <div>
       <section>
-        <form action="http://localhost:6000/login" method="POST" enctype="form-data">
+        <form>
             <div class="form-group m-5 font-family: 'Noto Sans KR', sans-serif;">
                 <div class="d-flex align-items-center">
                     <p style="font-weight: 600; font-size: 80px; color: #167fe0;">1</p>
@@ -12,14 +12,14 @@
                     <qrcode-stream @decode="onDecode" class="camera" @init="onInit"></qrcode-stream>
                 </div><br>
                 <div class="d-flex">
-                    <input type="text" :value="result">
                     <p>{{result}}</p>
-                    <button type="submit" class="btn btn-primary">확인하기</button>
+                    <button class="btn btn-primary" @click.prevent="onSubmit">확인하기</button>
                     <router-link class="btn btn-danger ml-3" to="/" style="text-decoration: none;">취소하기</router-link>
                 </div>
             </div>
-            <!-- <input type="file" accept="image/*;capture=camera"> onClick="location.href='SuccesQr.html'"-->
+            <!-- @click="onSubmit"-->
         </form>
+        <!-- <ViewQR :initname="name" :initage="age" :initemail="email" class=""/> -->
     </section>
   </div>
 </template>
@@ -27,13 +27,24 @@
 <script>
 import { QrcodeStream } from 'vue-qrcode-reader'
 import axios from 'axios';
-import {router} from '../router/index';
+// import ViewQR from './ViewQR';
+
+const instance = axios.create({
+    baseURL: 'http://localhost:7000',
+});
+
 export default {
-    components: {QrcodeStream},
-    data () {
+    components: {
+        QrcodeStream,
+        // ViewQR,
+    },
+    data() {
         return{
             result: '',
             error: '',
+            name: '',
+            age: '',
+            email: ''
         }
     },
     methods: {
@@ -42,7 +53,7 @@ export default {
             },
             async onInit (promise) {
             try{
-                await promise
+                await promise 
             }catch(error){
                 if(error.name === "NotAllowedError"){
                     this.error = "카메라 사용에 대한 권한을 허용해 주세요."
@@ -60,19 +71,27 @@ export default {
                 }
             }
         },
-        onCheck(result) {
+        onSubmit(){
+            const formData = new FormData();
+            formData.append('qrdata',this.result);
             try{
-                axios.post('/sign_up').then(function(res, err){
-                    if(err){
-                        console.log(err);
+                instance.post('/login',formData).then((res) => {
+                    const result2 = JSON.stringify(res.data);
+                    const result1 = res.data.result1;
+                    const arr = {"result1":[]}
+                    const arreal = JSON.stringify(arr);
+                    if(result2 === arreal){
+                        this.$router.push({ path:'/failQR'});
+                    }else if(result1[0].name === 'null'){
+                        this.$router.push({ name:'addInfoQR', params:{initresult: this.result} });
                     }else{
-                        if(result[0].name === null){
-                            router.push("수정페이지 이동");
-                        }else{
-                            router.push("/ViewQR");
-                        }
+                        this.name = result1[0].name;
+                        this.age = result1[0].age;
+                        this.email = result1[0].email;
+                        this.$router.push({ name: 'ViewQR', params: {initname: this.name, initage: this.age, initemail: this.email, initresult: this.result}});
+                        //push로 파라미터 보낼때 path 말고 name만 작동함. path는 query사용시 사용.
                     }
-                })
+                });
             }catch(err){
                 console.log(err);
             }

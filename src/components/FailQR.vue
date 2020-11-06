@@ -11,7 +11,7 @@
         <a
           class="btn btn-success"
           onclick="location.href='http://hong4383.r-e.kr/addQR'"
-          >등록하기</a
+          >QR코드 제작</a
         >
       </div>
     </section>
