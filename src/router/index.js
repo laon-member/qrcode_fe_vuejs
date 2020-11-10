@@ -8,6 +8,7 @@ import SuccesQR from "@/components/SuccesQR";
 import ViewQR from "@/components/ViewQR";
 import UpdateQR from "@/components/UpdateQR";
 import addInfoQR from "@/components/addInfoQR";
+import newQR from "@/components/newQR";
 
 Vue.use(Router);
 
@@ -59,6 +60,12 @@ export default new Router({
       path: "/addInfoQR",
       name: "addInfoQR",
       component: addInfoQR,
+      props: true,
+    },
+    {
+      path: "/newQR",
+      name: "newQR",
+      component: newQR,
       props: true,
     },
   ],

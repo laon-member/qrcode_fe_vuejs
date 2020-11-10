@@ -12,8 +12,8 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/AddQR" class="nav-link" style="color: #757575; font-size: 11px;">
-                            QR코드 정보 수정
+                        <router-link to="/newQR" class="nav-link" style="color: #757575; font-size: 11px;">
+                            QR코드 제작
                         </router-link>
                     </li>
                 </ul>

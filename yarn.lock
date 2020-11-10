@@ -898,6 +898,13 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@ispa.io/vrcode@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@ispa.io/vrcode/-/vrcode-1.5.0.tgz#87f7b3a96507e80b2e6dca561a317648a42e313b"
+  integrity sha512-dE85c+5yqlF78wwxpBrsxYGK9rNB7q6iPCJh0El7Y5ky9S6L+yV0OozkOU2VtvWoAmIuReZ7TdeIR59jdOTcMw==
+  dependencies:
+    qr.js "^0.0.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -5482,6 +5489,11 @@ mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.5, mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.5"
 
+moment@^2.19.2:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -6634,6 +6646,11 @@ q@^1.1.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
+
+qr.js@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
+  integrity sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=
 
 qs@6.7.0:
   version "6.7.0"
@@ -8153,6 +8170,13 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-moment@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/vue-moment/-/vue-moment-4.1.0.tgz#092a8ff723a96c6f85a0a8e23ad30f0bf320f3b0"
+  integrity sha512-Gzisqpg82ItlrUyiD9d0Kfru+JorW2o4mQOH06lEDZNgxci0tv/fua1Hl0bo4DozDV2JK1r52Atn/8QVCu8qQw==
+  dependencies:
+    moment "^2.19.2"
+
 vue-qrcode-reader@^2.3.14:
   version "2.3.14"
   resolved "https://registry.yarnpkg.com/vue-qrcode-reader/-/vue-qrcode-reader-2.3.14.tgz#d2b105570ebad91f6d631e82a78dd715c15fdf4a"
@@ -8162,6 +8186,11 @@ vue-qrcode-reader@^2.3.14:
     core-js "^3.6.5"
     vue "^2.6.11"
     webrtc-adapter "7.7.0"
+
+vue-qrcode@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/vue-qrcode/-/vue-qrcode-0.3.3.tgz#b303e3a67d0f311b5f40539ca4129dc801f68d12"
+  integrity sha512-VkkRe3nbb+KY746TuBwdKAntXiCjwCCcZCsHir7KdwKupebfA8NxCzfF9lBmTeT4cSSLDuRM9oGuGHf6ZZrKuA==
 
 vue-router@^3.4.8:
   version "3.4.8"
